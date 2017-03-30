@@ -31,7 +31,8 @@ CALL compile.bat < nul
 
 START "Xenotomb Build Process" /B /WAIT 7z a -r -tzip -x@".7zignore" "..\%_build_name_rel%" ".\*"
 
-IF EXIST appveyor DO appveyor PushArtifact "..\%_build_name_rel%"
+FOR %%X IN (appveyor.exe) DO (set _found=%%~$PATH:X)
+IF DEFINED _appveyor_found DO appveyor PushArtifact "..\%_build_name_rel%"
 
 rem *********** DEBUG BUILD ***********
 REM ECHO(
