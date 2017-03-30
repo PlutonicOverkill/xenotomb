@@ -5,13 +5,13 @@ CD /D %~dp0
 
 TITLE Xenotomb Build Process
 
-IF NOT EXIST ..\7z\ (
-	ECHO(
-	ECHO 7zip must be in a directory adjacent
-	ECHO to this script for building to work!
+REM IF NOT EXIST ..\7z\ (
+	REM ECHO(
+	REM ECHO 7zip must be in a directory adjacent
+	REM ECHO to this script for building to work!
 	
-	EXIT /B
-)
+	REM EXIT /B
+REM )
 
 FOR /F %%I IN ('GIT --git-dir=".\.git" describe --long --tags --dirty --always') DO SET _git_version=%%I
 
@@ -29,17 +29,19 @@ ECHO Release build started.
 rem use < nul to suppress "press any key to continue" messages
 CALL compile.bat < nul
 
-START "Xenotomb Build Process" /B /WAIT "..\7z\7za.exe" a -r -tzip -x@".7zignore" "..\%_build_name_rel%" ".\*"
+START "Xenotomb Build Process" /B /WAIT 7z a -r -tzip -x@".7zignore" "..\%_build_name_rel%" ".\*"
+
+IF EXIST appveyor DO appveyor PushArtifact "..\%_build_name_rel%"
 
 rem *********** DEBUG BUILD ***********
-ECHO(
-ECHO Debug build started.
-rem use < nul to suppress "press any key to continue" messages
-CALL compile.bat /D < nul
+REM ECHO(
+REM ECHO Debug build started.
+REM rem use < nul to suppress "press any key to continue" messages
+REM CALL compile.bat /D < nul
 
-START "Xenotomb Build Process" /B /WAIT "..\7z\7za.exe" a -r -tzip -x@".7zignore" "..\%_build_name_deb%" ".\*"
+REM START "Xenotomb Build Process" /B /WAIT 7z a -r -tzip -x@".7zignore" "..\%_build_name_deb%" ".\*"
 
 ECHO(
 ECHO Xenotomb build %_git_version% completed.
 
-PAUSE
+REM PAUSE

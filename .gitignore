@@ -28,3 +28,6 @@ run.bat
 
 # output log from running GZDoom
 log.txt
+
+# for automated build script
+latest_gdcc_version.txt
