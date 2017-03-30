@@ -1,4 +1,4 @@
 version: 1.0.{build}
 before_build:
-- cmd: appveyor_before_build.ps
+- cmd: appveyor_before_build.bat
 clone_folder: c:\projects\xenotomb  
