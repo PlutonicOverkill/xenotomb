@@ -1,3 +1,8 @@
+# XENOTOMB
+[![AppVeyor](https://ci.appveyor.com/api/projects/status/6mw4qjl045b48ls1?svg=true)](https://ci.appveyor.com/project/PlutonicOverkill/xenotomb)
+
+[Latest autobuild](https://ci.appveyor.com/api/projects/PlutonicOverkill/xenotomb/artifacts/build_artifacts/xenotomb.pk3)
+
 This is the dev github. If you feel like checking us out, please be discrete. We'll announce the project when WE feel ready.
 Until then you'll see lots of place holders, lots of broken stuff, and generally just spam commits.
 

@@ -32,7 +32,10 @@ CALL compile.bat < nul
 START "Xenotomb Build Process" /B /WAIT 7z a -r -tzip -x@".7zignore" "..\%_build_name_rel%" ".\*"
 
 FOR %%X IN (appveyor.exe) DO (set _appveyor_found=%%~$PATH:X)
-IF DEFINED _appveyor_found appveyor.exe PushArtifact "..\%_build_name_rel%"
+IF DEFINED _appveyor_found (
+	MOVE ..\%_build_name_rel% .\build_artifacts\xenotomb.pk3
+	appveyor.exe PushArtifact .\build_artifacts\xenotomb.pk3
+)
 
 rem *********** DEBUG BUILD ***********
 REM ECHO(
