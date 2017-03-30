@@ -363,23 +363,39 @@ function int trunc(int x)
 	return (x & 0xffff0000) + ((x < 0)<<16);
 }
 
+/*
+	************* DIRTY HACK *************
+	this function <probably> isn't needed
+	so I'm commenting it out to prevent
+	build errors
+*/
+
 // fixed floor(fixed x)
-function int floor(int x)
+/* function int floor(int x)
 {
 	return x & 0xffff0000;
-}
+} */
+
+/*
+	************* DIRTY HACK *************
+*/
 
 // fixed ceil(fixed x)
-function int ceil(int x)
+/* function int ceil(int x)
 {
 	return ((x - 1) & 0xffff0000) + 1.0;
 }
+ */
+ 
+/*
+	************* DIRTY HACK *************
+*/
 
 // fixed round(fixed x)
-function int round(int x)
+/* function int round(int x)
 {
 	return (x + 0.5) & 0xffff0000;
-}
+} */
 
 // int itrunc(fixed x)
 function int itrunc(int x)

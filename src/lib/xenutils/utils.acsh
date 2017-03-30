@@ -1,5 +1,7 @@
 // ACS compatible version of utils.h - TODO
 
+/*
+
 #pragma fixed on
 
 struct Point {
@@ -28,3 +30,5 @@ fixed unlerp(fixed x, fixed min, fixed max);
 // multiple times
 [[extern("ACS")]]
 int safe_tid(void);
+
+*/
