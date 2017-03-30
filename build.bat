@@ -33,8 +33,9 @@ START "Xenotomb Build Process" /B /WAIT 7z a -r -tzip -x@".7zignore" "..\%_build
 
 FOR %%X IN (appveyor.exe) DO (set _appveyor_found=%%~$PATH:X)
 IF DEFINED _appveyor_found (
-	MOVE ..\%_build_name_rel% .\build_artifacts\xenotomb.pk3
-	appveyor.exe PushArtifact .\build_artifacts\xenotomb.pk3
+	IF NOT EXIST .\build_artifacts MD build_artifacts
+	MOVE "..\%_build_name_rel%" ".\build_artifacts\xenotomb.pk3" /y
+	appveyor.exe PushArtifact ".\build_artifacts\xenotomb.pk3"
 )
 
 rem *********** DEBUG BUILD ***********
