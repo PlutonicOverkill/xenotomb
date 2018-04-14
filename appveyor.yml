@@ -1,5 +1,6 @@
 version: 1.0.{build}
 install:
-- cmd: appveyor_before_build.bat
+- set PATH=C:\Program Files\Git\mingw64\bin;%PATH%
+- cmd: bash -e setup.sh
 build: off
 clone_folder: c:\projects\xenotomb  

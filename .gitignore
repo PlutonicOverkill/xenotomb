@@ -1,6 +1,5 @@
-# compressed files - result of build scripts?
-*.pk3
-*.zip
+bin
+tools
 
 # Windows generated files
 *.lnk
@@ -12,22 +11,3 @@
 
 # SLADE backup files - ditto
 *.bak
-
-# ignore ACS binaries
-acs/
-ir/
-
-# compiled maps - map sources go in \src\maps
-/maps/
-
-# this is automatically generated on compilation
-LOADACS.txt
-
-# make your own run.bat for testing
-run.bat
-
-# output log from running GZDoom
-log.txt
-
-# for automated build script
-latest_gdcc_version.txt
